@@ -107,7 +107,7 @@ install_filemanager()
 	fi
 	
 	filemanager_file="${filemanager_os}-$filemanager_arch-filebrowser$filemanager_dl_ext"
-	filemanager_tag="$(${net_getter}  https://api.github.com/repos/filebrowser/filebrowser/releases/latest | jq .tag_name | sed 's/\"//g')"
+	filemanager_tag="$(curl https://api.github.com/repos/filebrowser/filebrowser/releases/latest | jq .tag_name | sed 's/\"//g')"
 	filemanager_url="https://github.com/filebrowser/filebrowser/releases/download/$filemanager_tag/$filemanager_file"
 	echo "$filemanager_url"
 
